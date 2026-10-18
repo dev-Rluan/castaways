@@ -16,6 +16,6 @@
  document.getElementById('closeChzzk').onclick=()=>dialog.close();dialog.addEventListener('close',()=>{state.paused=wasPaused||liveMode&&!active;render();});document.getElementById('chzzkListen').onclick=listen;
  document.getElementById('chzzkDisconnect').onclick=async()=>{if(busy)return;busy=true;try{await api('disconnect',{});stopSocket();pauseGame();account=null;setBadge('● 치지직 계정 연결 해제');await refresh();}catch(error){message(error.message);}finally{busy=false;}};
  document.getElementById('chzzkDemo').onclick=()=>{stopSocket();setLiveMode(null);wasPaused=false;setBadge('● 가상 시청자 체험');document.getElementById('chzzkDemo').hidden=true;message('가상 시청자 체험 모드로 돌아왔습니다.');};
- const params=new URLSearchParams(location.search);if(params.has('chzzk')){button.click();if(params.get('chzzk')==='error')message(params.get('reason')||'계정 연결을 완료하지 못했습니다.');history.replaceState(null,'',location.pathname);}
+ const params=new URLSearchParams(location.search);if(params.has('chzzk')){button.onclick().then(()=>{if(params.get('chzzk')==='error')message(params.get('reason')||'계정 연결을 완료하지 못했습니다.');});history.replaceState(null,'',location.pathname);}
  window.addEventListener('pagehide',()=>{stopSocket();});
 })();
