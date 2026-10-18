@@ -1,0 +1,9 @@
+{
+  "name": "island-castaways",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node api-check.mjs && node stage-check.cjs && node chzzk-client-check.cjs",
+    "preview": "node scripts/preview.mjs"
+  }
+}

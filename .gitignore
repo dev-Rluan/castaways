@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+*.tgz
+package/
+dist/
+.openai/hosting.json
+.sites-checkout/
+.sites-runtime/
+node_modules/
+*.log
+*.tar
+*.tar.gz
+*.zip
+.DS_Store
+Thumbs.db
